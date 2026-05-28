@@ -146,7 +146,7 @@ pub struct GetPacketType;
 
 impl Command for GetPacketType {
     type IdType = u8;
-    type CommandParameters = NoParameters;
+    type CommandParameters = regiface::Zeros::<1>;
     type ResponseParameters = PacketType;
 
     fn id() -> Self::IdType {
@@ -154,7 +154,7 @@ impl Command for GetPacketType {
     }
 
     fn invoking_parameters(self) -> Self::CommandParameters {
-        NoParameters::default()
+        Self::CommandParameters::default()
     }
 }
 
