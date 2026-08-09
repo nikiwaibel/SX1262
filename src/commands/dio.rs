@@ -293,9 +293,9 @@ impl ToByteArray for TcxoConfig {
     fn to_bytes(self) -> Result<Self::Array, Self::Error> {
         let mut bytes = [0u8; 4];
         bytes[0] = self.voltage as u8;
-        bytes[1] = ((self.delay >> 16) | 0xff) as u8;
-        bytes[2] = ((self.delay >> 8) | 0xff) as u8;
-        bytes[3] = ((self.delay >> 0) | 0xff) as u8;
+        bytes[1] = ((self.delay >> 16) & 0xff) as u8;
+        bytes[2] = ((self.delay >> 8) & 0xff) as u8;
+        bytes[3] = ((self.delay >> 0) & 0xff) as u8;
         Ok(bytes)
     }
 }
